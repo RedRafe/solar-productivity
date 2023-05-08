@@ -11,12 +11,18 @@ Increase the efficiency of renewable sources of energy by progressing through te
 
 - Simulate the technological progress related to solar panels and accumulators as you invest more and more resources in this project
 
+![tech-tree](https://github.com/RedRafe/solar-productivity/blob/main/archive/tech-tree-1.png?raw=true)
+
 ## Progression
 
-- Lv.1: x250 red/green science, +40%
-- Lv.2: x500 +blue packs, +30%
-- Lv.3: x1'000 + yellow & purple packs, +20%
-- Lv.4-50: +2500 each level after space packs, +15%
+| **LEVEL** | **COST**  | **PACKS**      | **BONUS** |
+|:---------:|----------:|----------------|:---------:|
+| 1         | 250       | RG             | \+40%     |
+| 2         | 500       | RGB            | \+30%     |
+| 3         | 1'000     | RGBPY          | \+20%     |
+| 4\-50     | L x 2'500 | RGBPY \+ Space | \+15%     |
+
+![researches](https://github.com/RedRafe/solar-productivity/blob/main/archive/researches.png?raw=true)
 
 ## Translation
 Available languages:

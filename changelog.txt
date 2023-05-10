@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 09.05.2023
+  Compatibility:
+    - Added compatibility with mod AdvancedSolarPanels
+    - Added compatibility with mod Advanced-Solar
+    - Added compatibility with mod Advanced-Solar-and-Accumulator
+    - Added compatibility with mod Advanced-Electric-Revamped-v16
+    - Added compatibility with mod advanced-green-power
+    - Added compatibility with mod compact-solar
+    - Added compatibility with mod exotic-industries
+    - Added compatibility with mod FactorioExtended-Plus-Power
+    - Added compatibility with mod FactorioExtended-Energy
+    - Added compatibility with mod Factorio_Power_RE
+    - Added compatibility with mod Krastorio2
+    - Added compatibility with mod space-exploration
+    - Added compatibility with mod Speckled-advanced-solar
+    - Added compatibility with mod skan-advanced-solar
+    - Added compatibility with mod zombiesextended-power
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 08.05.2023
   Info:

@@ -3,6 +3,7 @@ local function startsWith(inputstr, start)
 end
 
 local function multiplyStringValue(text, coefficient)
+  if not text then return nil end
   local n = string.match(text, "%d+")
   local s = string.match(text, "%a+")
   return tostring(tonumber(n) * coefficient) .. s

@@ -15,6 +15,8 @@ SOL_PROD.BONUS = {
   [4] = 0.15
 }
 
+SOL_PROD.compatibility_list = require "prototypes.compatibility"
+
 SOL_PROD.DB = {}
 
 local function getUpgradedPrototype(name)
@@ -63,7 +65,7 @@ local function replace_prototype(old)
 end
 
 function SOL_PROD.make_solar_panel_variations(prototype_name)
-  if not prototype_name or not data.raw["solar-panel"][prototype_name] then 
+  if not prototype_name or not data.raw["solar-panel"][prototype_name] or not data.raw["solar-panel"][prototype_name].production then 
     log("SP: invalid SolarPanelPrototype")
     return
   end
@@ -87,7 +89,7 @@ function SOL_PROD.make_solar_panel_variations(prototype_name)
 end
 
 function SOL_PROD.make_accumulator_variations(prototype_name)
-  if not prototype_name or not data.raw["accumulator"][prototype_name] then 
+  if not prototype_name or not data.raw["accumulator"][prototype_name] or not data.raw["accumulator"][prototype_name].energy_source  then 
     log("SP: invalid AccumulatorPrototype")
     return
   end
@@ -110,7 +112,8 @@ function SOL_PROD.make_accumulator_variations(prototype_name)
       buffer_capacity = SU.msv(bes.buffer_capacity, bonus),
       usage_priority = bes.usage_priority,
       input_flow_limit = SU.msv(bes.input_flow_limit, bonus),
-      output_flow_limit = SU.msv(bes.output_flow_limit, bonus)
+      output_flow_limit = SU.msv(bes.output_flow_limit, bonus),
+      render_no_power_icon = bes.render_no_power_icon
     }
     data:extend({prototype})
     SOL_PROD.DB[prototype.name] = prototype_name
@@ -133,8 +136,16 @@ end
 function SOL_PROD.on_init()
   if not SOL_PROD.current_level then SOL_PROD.current_level = 0 end
 
-  SOL_PROD.register_entity("solar-panel")
-  SOL_PROD.register_entity("accumulator")
+  for ___, params in pairs(SOL_PROD.compatibility_list) do
+    if script.active_mods[params.mod] then
+      for ___, entity in pairs(params.solar_panels) do
+        SOL_PROD.register_entity(entity)
+      end
+      for ___, entity in pairs(params.accumulators) do
+        SOL_PROD.register_entity(entity)
+      end
+    end
+  end
 end
 
 function SOL_PROD.on_built(event)

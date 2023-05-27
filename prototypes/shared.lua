@@ -19,11 +19,22 @@ SOL_PROD.compatibility_list = require "prototypes.compatibility"
 
 SOL_PROD.DB = {}
 
-local function getUpgradedPrototype(name)
+local function getUpgradeLevel(force)
+  if force.technologies["solar-productivity-4"].researched == true then
+    return force.technologies["solar-productivity-4"].level
+  end
+  for n = 3, 1, -1 do
+    if force.technologies["solar-productivity-"..n].researched == true then
+      return n
+    end
+  end
+  return 0
+end
+
+local function getUpgradedPrototype(name, level)
   if not SOL_PROD.DB[name] then return name end
 
   local base = SOL_PROD.DB[name]
-  local level = SOL_PROD.current_level
   local upgrade = "sp-"..tostring(level).."-"..base
   
   if SOL_PROD.DB[upgrade] == base then 
@@ -37,12 +48,15 @@ local function replace_prototype(old)
   if not old or not old.valid then return end
 
   local old_name = old.name
-  if SOL_PROD.current_level == 0 or not SOL_PROD.DB[old_name] then return end
+  if not SOL_PROD.DB[old_name] then return end
 
-  local new_name = getUpgradedPrototype(old_name)
+  local force = old.force
+  local level = getUpgradeLevel(force)
+  if level == 0 then return end
+
+  local new_name = getUpgradedPrototype(old_name, level)
   if old_name == new_name then return end
 
-  local force    = old.force
   local surface  = old.surface
   local position = old.position
   local player   = old.last_user

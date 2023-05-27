@@ -1,6 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 2023-05-27
+  Bugfixes:
+    - Fixed productivity bonus on_load
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
-Date: 09.05.2023
+Date: 2023-05-09
   Compatibility:
     - Added compatibility with mod AdvancedSolarPanels
     - Added compatibility with mod Advanced-Solar

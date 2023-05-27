@@ -5,8 +5,6 @@ local SU = require "prototypes.string-util"
 -- Max number of levels for technology & prototypes
 SOL_PROD.LEVELS = 50
 
-SOL_PROD.current_level = 0
-
 -- Bonus for each level
 SOL_PROD.BONUS = {
   [1] = 0.40,
@@ -148,8 +146,6 @@ function SOL_PROD.register_entity(entity_name)
 end
 
 function SOL_PROD.on_init()
-  if not SOL_PROD.current_level then SOL_PROD.current_level = 0 end
-
   for ___, params in pairs(SOL_PROD.compatibility_list) do
     if script.active_mods[params.mod] then
       for ___, entity in pairs(params.solar_panels) do
@@ -181,10 +177,8 @@ function SOL_PROD.on_research_finished(event)
 
   if not SU.starts_with(name, "solar-productivity") then return end
   
-  SOL_PROD.current_level = research.level
-
   for ___, surface in pairs(game.surfaces) do
-    entities = surface.find_entities_filtered{
+    local entities = surface.find_entities_filtered{
       force = force,
       type = {"solar-panel", "accumulator"}
     }

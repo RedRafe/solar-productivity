@@ -1,8 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.2
+Date: 2023-05-31
+  Bugfixes:
+    - Fixed productivity bonus on_load
+    - Fixed SpaceExp overriding Solar-Productivity techs and breaking the update script
+---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2023-05-27
   Bugfixes:
-    - Fixed productivity bonus on_load
+    - Fixed productivity bonus on_init
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2023-05-09

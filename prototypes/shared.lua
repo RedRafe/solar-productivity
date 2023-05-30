@@ -18,15 +18,17 @@ SOL_PROD.compatibility_list = require "prototypes.compatibility"
 SOL_PROD.DB = {}
 
 local function getUpgradeLevel(force)
-  if force.technologies["solar-productivity-4"].researched == true then
-    return force.technologies["solar-productivity-4"].level
-  end
-  for n = 3, 1, -1 do
-    if force.technologies["solar-productivity-"..n].researched == true then
-      return n
+  local _max = 0
+  for level = SOL_PROD.LEVELS, 1, -1 do
+    if force.technologies["solar-productivity-"..level] then
+      if force.technologies["solar-productivity-"..level].researched == true then
+        if force.technologies["solar-productivity-"..level].level > _max then
+          _max = force.technologies["solar-productivity-"..level].level 
+        end
+      end
     end
   end
-  return 0
+  return _max
 end
 
 local function getUpgradedPrototype(name, level)

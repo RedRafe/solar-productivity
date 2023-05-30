@@ -3,6 +3,7 @@ local SOL_PROD = require "prototypes.shared"
 remote.add_interface("sp-register-entity", {register_entity = SOL_PROD.register_entity})
 
 script.on_init(SOL_PROD.on_init)
+script.on_load(SOL_PROD.on_init)
 script.on_configuration_changed(SOL_PROD.on_init)
 
 script.on_event(

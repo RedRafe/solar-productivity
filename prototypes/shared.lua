@@ -170,6 +170,20 @@ function SOL_PROD.on_built(event)
   replace_prototype(entity)
 end
 
+function SOL_PROD.force_update()
+  for ___, surface in pairs(game.surfaces) do
+    local entities = surface.find_entities_filtered{
+      type = {"solar-panel", "accumulator"}
+    }
+    for ___, entity in pairs(entities) do replace_prototype(entity) end
+  end
+end
+
+function SOL_PROD.on_configuration_changed()
+  SOL_PROD.on_init()
+  SOL_PROD.force_update()
+end
+
 function SOL_PROD.on_research_finished(event)
   local research = event.research
   if not research or not research.valid then return end

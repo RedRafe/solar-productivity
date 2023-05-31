@@ -1,8 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.0
+Date: 2023-05-31
+  Info:
+    - Refactored whole code to be more optimized
+  Features:
+    - Added command "/sp-update" to manually force an update of all entities
+    - Added command "/sp-transition" to manually replace all upgraded entities with normal ones
+  Compatibility:
+    - Added Bob compatibililty with Bob's Power
+---------------------------------------------------------------------------------------------------
 Version: 0.2.3
 Date: 2023-05-31
   Features:
-    - Added "sp-force-update" command to updte entities
+    - Added "sp-force-update" command to update entities
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.2
 Date: 2023-05-31

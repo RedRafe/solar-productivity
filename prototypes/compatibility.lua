@@ -79,4 +79,9 @@ return {
     solar_panels = {"advanced-solar", "elite-solar", "ultimate-solar"},
     accumulators = {"advanced-accumulator", "elite-accumulator", "ultimate-accumulator"}
   },
+  {
+    mod = "bobpower",
+    solar_panels = {"solar-panel-small", "solar-panel-large", "solar-panel-small-2", "solar-panel-2",  "solar-panel-large-2", "solar-panel-small-3", "solar-panel-3", "solar-panel-large-3"},
+    accumulators = {"fast-accumulator", "slow-accumulator", "fast-accumulator-2", "large-accumulator-2", "slow-accumulator-2", "fast-accumulator-3", "large-accumulator-3", "slow-accumulator-3"}
+  }
 }

@@ -31,6 +31,12 @@ You can help by translating this mod into your language. Any new translations wi
 ---
 
 ## Known Bugs & Mod compatibility
+Solar Productivity offers 2 in-game commands that you can type in the console to resolve any issue:
+
+1. *`/sp-update`*  -> Manually updates all entities on all surfaces to the latest solar productivity researched
+
+2. *`/sp-transition`* -> Removes all solar productivity upgrades from all surfaces, useful before removing Solar Productivity mod from the savefile
+
 Please feel free to report any known issue! :) 
 
 Already compatible with:
@@ -39,6 +45,7 @@ Already compatible with:
 - [Advanced Solar High Resolution](https://mods.factorio.com/mod/Advanced-Electric-Revamped-v16)
 - [Advanced Solar Panels](https://mods.factorio.com/mod/AdvancedSolarPanels)
 - [Advanced Green Power](https://mods.factorio.com/mod/advanced-green-power)
+- [Bob's Power](https://mods.factorio.com/mod/bobpower)
 - [Compact Solar](https://mods.factorio.com/mod/compact-solar)
 - [Exotic Industries](https://mods.factorio.com/mod/exotic-industries)
 - [FactorioExtended - Energy](https://mods.factorio.com/mod/FactorioExtended-Energy)

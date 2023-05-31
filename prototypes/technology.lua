@@ -1,4 +1,4 @@
-local SOL_PROD = require "prototypes.shared"
+local SP = require "prototypes.shared"
 
 local technology_icons = function()
   return {
@@ -20,7 +20,7 @@ data:extend({
   -- SP-1
   {
     type = "technology",
-    name = "solar-productivity-1",
+    name = SP.TECHNOLOGY.."1",
     icon_size = 256,
     icon_mipmaps = 4,
     icons = technology_icons(),    
@@ -48,7 +48,7 @@ data:extend({
   -- SP-2
   {
     type = "technology",
-    name = "solar-productivity-2",
+    name = SP.TECHNOLOGY.."2",
     icon_size = 256,
     icon_mipmaps = 4,
     icons = technology_icons(), 
@@ -59,7 +59,7 @@ data:extend({
         effect_description = "Solar productivity: +30%"
       },
     },
-    prerequisites = {"solar-productivity-1"},
+    prerequisites = {SP.TECHNOLOGY.."1"},
     unit =
     {
       count = 500,
@@ -77,7 +77,7 @@ data:extend({
   -- SP-3
   {
     type = "technology",
-    name = "solar-productivity-3",
+    name = SP.TECHNOLOGY.."3",
     icon_size = 256,
     icon_mipmaps = 4,
     icons = technology_icons(), 
@@ -88,7 +88,7 @@ data:extend({
         effect_description = "Solar productivity: +20%"
       },
     },
-    prerequisites = {"solar-productivity-2"},
+    prerequisites = {SP.TECHNOLOGY.."2"},
     unit =
     {
       count = 1000,
@@ -108,7 +108,7 @@ data:extend({
   -- SP-4
   {
     type = "technology",
-    name = "solar-productivity-4",
+    name = SP.TECHNOLOGY.."4",
     icon_size = 256,
     icon_mipmaps = 4,
     icons = technology_icons(),
@@ -119,7 +119,7 @@ data:extend({
         effect_description = "Solar productivity: +15%"
       },
     },
-    prerequisites = {"solar-productivity-3", "space-science-pack"},
+    prerequisites = {SP.TECHNOLOGY.."3", "space-science-pack"},
     unit =
     {
       count_formula = "2500*(L - 3)",
@@ -133,10 +133,8 @@ data:extend({
       },
       time = 60
     },
-    max_level = SOL_PROD.LEVELS,
+    max_level = SP.LEVELS,
     upgrade = true,
     order = "sp-4",
   }
 })
-
-

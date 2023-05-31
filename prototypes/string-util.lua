@@ -1,6 +1,7 @@
 -- STRING UTIL LIBRARY
 
 -- ============================================================================
+
 ---@param inputstr string
 ---@param start string
 local function startsWith(inputstr, start) 

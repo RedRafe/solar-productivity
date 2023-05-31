@@ -92,8 +92,6 @@ end
 --- updates forces levels & entities on new solar productivity researched
 ---@param event EventData.on_research_finished
 local function on_research_finished(event)
-  
-
   local research = event.research
   if not research or not research.valid then return end
 
@@ -101,12 +99,8 @@ local function on_research_finished(event)
   local force = research.force
 
   if not sutil.starts_with(name, SP.TECHNOLOGY) then return end
-
-  log(global.levels[force.index])
   
   update_force_level(force)
-  
-  log(global.levels[force.index])
 
   for ___, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered{

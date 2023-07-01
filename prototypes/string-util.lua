@@ -14,7 +14,7 @@ end
 ---@param coefficient number
 local function multiplyStringValue(text, coefficient)
   if not text then return nil end
-  local n = string.match(text, "%d+")
+  local n, _ = string.gsub(text, "%a", "")
   local s = string.match(text, "%a+")
   return tostring(tonumber(n) * coefficient) .. s
 end

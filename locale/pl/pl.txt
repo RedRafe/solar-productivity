@@ -1,0 +1,16 @@
+[command-help]
+sp-update=- Ręcznie aktualizuje wszystkie jednostki na wszystkich powierzchniach do najnowszej zbadanej produktywności ogniw słonecznych.
+sp-transition=- Usuwa wszystkie ulepszenia wydajności ogniw słonecznych z wszystkich powierzchni, przydatne przed usunięciem modyfikacji Wydajność ogniw słonecznych z pliku zapisu.
+
+[entyty-name]
+  accumulator=Akumulator
+  soar-panel=Ogniwo słoneczne
+
+[technology-name]
+  solar-productivity=Wydajność ogniw słonecznych
+
+[technology-description]
+  solar-productivity-1=Zwiększa wydajność ogniw słonecznych i akumulatorów o 40%
+  solar-productivity-2=Zwiększa wydajność ogniw słonecznych i akumulatorów o 30%
+  solar-productivity-3=Zwiększa wydajność ogniw słonecznych i akumulatorów o 20%
+  solar-productivity-4=Zwiększa wydajność ogniw słonecznych i akumulatorów o 15%

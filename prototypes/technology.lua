@@ -28,7 +28,7 @@ data:extend({
     {
       {
         type = "nothing",
-        effect_description = "Solar productivity: +40%"
+        effect_description = {"effect-description.solar-productivity-1"}
       },
     },
     prerequisites = {"solar-energy", "electric-energy-accumulators"},
@@ -56,7 +56,7 @@ data:extend({
     {
       {
         type = "nothing",
-        effect_description = "Solar productivity: +30%"
+        effect_description = {"effect-description.solar-productivity-2"}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."1"},
@@ -85,7 +85,7 @@ data:extend({
     {
       {
         type = "nothing",
-        effect_description = "Solar productivity: +20%"
+        effect_description = {"effect-description.solar-productivity-3"}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."2"},
@@ -116,7 +116,7 @@ data:extend({
     {
       {
         type = "nothing",
-        effect_description = "Solar productivity: +15%"
+        effect_description = {"effect-description.solar-productivity-4"}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."3", "space-science-pack"},

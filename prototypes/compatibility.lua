@@ -35,6 +35,11 @@ return {
     accumulators = {"advanced-accumulator", "elite-accumulator", "ultimate-accumulator"}
   },
   {
+    mod = "Advanced-Electric-Revamped-GOR-v16",
+    solar_panels = {"advanced-solar", "elite-solar", "ultimate-solar"},
+    accumulators = {"advanced-accumulator", "elite-accumulator", "ultimate-accumulator"}
+  },
+  {
     mod = "AdvancedSolarPanels",
     solar_panels = {"solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4"},
     accumulators = {}
@@ -58,6 +63,21 @@ return {
     mod = "FactorioExtended-Plus-Power",
     solar_panels = {"solar-panel-mk2", "solar-panel-mk3"},
     accumulators = {"accumulator-mk2", "accumulator-mk3"}
+  },
+  {
+    mod = "FactorioExtended-Plus-CompoundSolars",
+    solar_panels = {"solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4", "solar-panel-mk5", "solar-panel-mk6", "solar-panel-mk7", "solar-panel-mk8"},
+    accumulators = {"accumulator-mk2", "accumulator-mk3", "accumulator-mk4", "accumulator-mk5", "accumulator-mk6", "accumulator-mk7", "accumulator-mk8"}
+  },
+    {
+    mod = "Lindors-Advanced-Solar",
+    solar_panels = {"solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4", "solar-panel-mk5", "solar-panel-mk6", "solar-panel-mk7", "solar-panel-mk8"},
+    accumulators = {"accumulator-mk2", "accumulator-mk3", "accumulator-mk4", "accumulator-mk5", "accumulator-mk6", "accumulator-mk7", "accumulator-mk8"}
+  },
+  {
+    mod = "Lindors-GOR-Advanced-Solar",
+    solar_panels = {"solar-panel-mk1", "solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4", "solar-panel-mk5", "solar-panel-mk6", "solar-panel-mk7", "solar-panel-mk8"},
+    accumulators = {"accumulator-mk1", "accumulator-mk2", "accumulator-mk3", "accumulator-mk4", "accumulator-mk5", "accumulator-mk6", "accumulator-mk7", "accumulator-mk8"}
   },
   {
     mod = "FactorioExtended-Energy",

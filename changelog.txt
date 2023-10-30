@@ -1,3 +1,12 @@
+Version: 0.2.0
+Date: 2023-05-09
+  Compatibility:
+    - Added compatibility with mod Advanced-Electric-Revamped-GOR-v16
+    - Added compatibility with mod FactorioExtended-Plus-CompoundSolars
+    - Added compatibility with mod Lindors-GOR-Advanced-Solar
+    - Added compatibility with mod Lindors-Advanced-Solar
+  Changes:
+    - Added RU locale
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2023-05-31
@@ -7,7 +16,7 @@ Date: 2023-05-31
     - Added command "/sp-update" to manually force an update of all entities
     - Added command "/sp-transition" to manually replace all upgraded entities with normal ones
   Compatibility:
-    - Added Bob compatibililty with Bob's Power
+    - Added Bob compatibility with Bob's Power
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.3
 Date: 2023-05-31

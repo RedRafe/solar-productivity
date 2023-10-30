@@ -58,5 +58,3 @@ Already compatible with:
 - [SF Advanced Solar](https://mods.factorio.com/mod/Speckled-advanced-solar)
 - [Skandragon's Advanced Solar](https://mods.factorio.com/mod/skan-advanced-solar)
 - [Zombies Extended - Power](https://mods.factorio.com/mod/zombiesextended-power)
-- [name](https://mods.factorio.com/mod/Advanced-Electric-Revamped-GOR-v16)
-- [name](https://mods.factorio.com/mod/Lindors-GOR-Advanced-Solar)

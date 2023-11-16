@@ -1,3 +1,8 @@
+Version: 0.3.2
+Date: 2023-11-16
+  Compatibility:
+    - Added compatibility with mod Cosmicon-Solar-Panels
+---------------------------------------------------------------------------------------------------
 Version: 0.3.1
 Date: 2023-10-30
   Compatibility:

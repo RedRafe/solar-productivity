@@ -55,6 +55,11 @@ return {
     accumulators = {"accumulator-compact"}
   },
   {
+    mod = "Cosmicon-Solar-Panels",
+    solar_panels = { "solar-panel-2", "solar-panel-3", "solar-panel-4", "flat-solar-panel", "flat-solar-panel-2", "flat-solar-panel-3", "flat-solar-panel-4" },
+    accumulators = { "accumulator-2", "accumulator-3", "accumulator-4" }
+  },
+  {
     mod = "Speckled-advanced-solar",
     solar_panels = {"sf-advanced-solar"},
     accumulators = {"sf-advanced-accumulator"}

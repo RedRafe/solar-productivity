@@ -47,6 +47,7 @@ Already compatible with:
 - [Advanced Green Power](https://mods.factorio.com/mod/advanced-green-power)
 - [Bob's Power](https://mods.factorio.com/mod/bobpower)
 - [Compact Solar](https://mods.factorio.com/mod/compact-solar)
+- [Cosmicon Solar Panels](https://mods.factorio.com/mod/Cosmicon-Solar-Panels)
 - [Exotic Industries](https://mods.factorio.com/mod/exotic-industries)
 - [FactorioExtended - Energy](https://mods.factorio.com/mod/FactorioExtended-Energy)
 - [FactorioExtendedPlus - Power](https://mods.factorio.com/mod/FactorioExtended-Plus-Power)

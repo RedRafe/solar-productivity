@@ -1,3 +1,9 @@
+Version: 0.3.3
+Date: 2023-11-25
+  Compatibility:
+    - Added compatibility with mod Big Energy
+    - Added compatibility with mod Bio Industries
+---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 2023-11-16
   Compatibility:

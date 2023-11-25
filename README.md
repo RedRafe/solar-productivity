@@ -45,6 +45,8 @@ Already compatible with:
 - [Advanced Solar High Resolution](https://mods.factorio.com/mod/Advanced-Electric-Revamped-v16)
 - [Advanced Solar Panels](https://mods.factorio.com/mod/AdvancedSolarPanels)
 - [Advanced Green Power](https://mods.factorio.com/mod/advanced-green-power)
+- [Bio Industries](https://mods.factorio.com/mod/Bio_Industries)
+- [Big Energy](https://mods.factorio.com/mod/big-energy-solar-wind-and-accumulator)
 - [Bob's Power](https://mods.factorio.com/mod/bobpower)
 - [Compact Solar](https://mods.factorio.com/mod/compact-solar)
 - [Cosmicon Solar Panels](https://mods.factorio.com/mod/Cosmicon-Solar-Panels)

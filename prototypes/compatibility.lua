@@ -50,6 +50,16 @@ return {
     accumulators = {"agp-accumulator-advanced", "agp-accumulator-elite", "agp-accumulator-ultimate"}
   },
   {
+    mod = "Bio_Industries",
+    solar_panels = {"bi-bio-solar-farm"},
+    accumulators = {"bi-bio-accumulator"}
+  },
+  {
+    mod = "big-energy-solar-wind-and-accumulator",
+    solar_panels = {"big-solar-panel"},
+    accumulators = {"big-accumulator"}
+  },
+  {
     mod = "compact-solar",
     solar_panels = {"solar-panel-compact"},
     accumulators = {"accumulator-compact"}

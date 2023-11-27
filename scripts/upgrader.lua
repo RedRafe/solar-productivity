@@ -30,9 +30,12 @@ local function update_force_level(force)
   -- because SE requires to loop through all of them
   local _max = 0
   for l = 1, SP.LEVELS do
-    local tech = force.technologies[SP.TECHNOLOGY..l]
+    local tech_name = SP.TECHNOLOGY .. l
+    local tech = force.technologies[tech_name]
     if tech and tech.researched == true and tech.level then
       _max = math.max(_max, tech.level)
+    elseif tech and tech.researched == false and tech.level then
+      _max = math.max(_max, tech.level - 1)
     end
   end
 

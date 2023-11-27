@@ -1,3 +1,10 @@
+Version: 0.3.4
+Date: 2023-11-27
+  Bugfixes:
+    - Fixed incorrect level detection with infinite researches
+  Compatibility:
+    - Fixed missing entities for Lindors-Advanced-Solar - mk1 solar panel & accumulator
+---------------------------------------------------------------------------------------------------
 Version: 0.3.3
 Date: 2023-11-25
   Compatibility:

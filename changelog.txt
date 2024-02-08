@@ -1,3 +1,11 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.3.5
+Date: 2024-02-08
+  Bugfixes:
+    - Fixed Solar Prod tech lvl.1 unlocking all first 3 levels of productivity
+  Changes:
+    - Solar Productivity will now revert back if Solar Prod. techs are un-researched (but not below lvl.1)
+---------------------------------------------------------------------------------------------------
 Version: 0.3.4
 Date: 2023-11-27
   Bugfixes:

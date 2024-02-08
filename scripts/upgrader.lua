@@ -29,14 +29,22 @@ local function update_force_level(force)
   -- loop trough all techs. Cannot be optimized 
   -- because SE requires to loop through all of them
   local _max = 0
-  for l = 1, SP.LEVELS do
+  local researched = true
+  local l = 1
+  while (researched == true and l <= SP.LEVELS) do
     local tech_name = SP.TECHNOLOGY .. l
     local tech = force.technologies[tech_name]
-    if tech and tech.researched == true and tech.level then
-      _max = math.max(_max, tech.level)
-    elseif tech and tech.researched == false and tech.level then
-      _max = math.max(_max, tech.level - 1)
+    if tech then
+      if tech.researched then
+        _max = math.max(_max, tech.level)
+      else
+        researched = false
+        if tech.level then
+          _max = math.max(_max, tech.level - 1)
+        end
+      end
     end
+    l = l + 1
   end
 
   global.levels = global.levels or {}
@@ -56,12 +64,13 @@ end
 
 --- upgrade prototype to the higher level
 ---@param old LuaEntity
-local function upgrade_prototype(old)
+local function update_prototype(old)
   if not old or not old.valid then return end
 
   local force = old.force
   local level = global.levels[force.index]
   if not level or level == 0 then return end
+  -- TODO: replace all solars to "vanilla" if prod-1 is unresearched
 
   local old_name  = old.name
   local new_name  = SP.ENTITY..level.."-"..sutil.base(old_name)
@@ -110,7 +119,30 @@ local function on_research_finished(event)
       force = force,
       type = {"solar-panel", "accumulator"}
     }
-    for ___, entity in pairs(entities) do upgrade_prototype(entity) end
+    for ___, entity in pairs(entities) do update_prototype(entity) end
+  end
+end
+
+-- ============================================================================
+
+--- updates forces levels & entities on solar productivity reversed
+local function on_research_reversed(event)
+  local research = event.research
+  if not research or not research.valid then return end
+
+  local name = research.name
+  local force = research.force
+
+  if not sutil.starts_with(name, SP.TECHNOLOGY) then return end
+
+  update_force_level(force)
+
+  for ___, surface in pairs(game.surfaces) do
+    local entities = surface.find_entities_filtered{
+      force = force,
+      type = {"solar-panel", "accumulator"}
+    }
+    for ___, entity in pairs(entities) do update_prototype(entity) end
   end
 end
 
@@ -124,7 +156,7 @@ local function on_built(event)
   
   local name = entity.name
   
-  upgrade_prototype(entity)
+  update_prototype(entity)
 end
 
 -- ============================================================================
@@ -135,7 +167,7 @@ local function update_entities()
     local entities = surface.find_entities_filtered{
       type = {"solar-panel", "accumulator"}
     }
-    for ___, entity in pairs(entities) do upgrade_prototype(entity) end
+    for ___, entity in pairs(entities) do update_prototype(entity) end
   end
 end
 
@@ -205,6 +237,7 @@ local Upgrader = {}
 Upgrader.events = {
   [defines.events.on_force_created]       = on_force_created,
   [defines.events.on_research_finished]   = on_research_finished,
+  [defines.events.on_research_reversed]   = on_research_reversed,
   [defines.events.on_built_entity]        = on_built,
   [defines.events.on_entity_cloned]       = on_built,
   [defines.events.on_robot_built_entity]  = on_built,

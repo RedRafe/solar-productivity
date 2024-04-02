@@ -13,6 +13,10 @@ local function make_solar_panel_variations(prototype_name)
   local base = data.raw["solar-panel"][prototype_name]
   local bonus = 1
   local max_bonus = #SP.BONUS
+  local result = base.name
+  if base.minable and base.minable.result then
+    result = base.minable.result
+  end
   
   for level = 1, SP.LEVELS do
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
@@ -20,7 +24,7 @@ local function make_solar_panel_variations(prototype_name)
     
     prototype.name            = SP.ENTITY..tostring(level).."-"..base.name
     prototype.localised_name  = {"entity-name."..base.name}
-    prototype.placeable_by    = { item = base.name, count = 1 }
+    prototype.placeable_by    = { item = result, count = 1 }
     prototype.production      = sutil.msv(base.production, bonus)
     
     data:extend({prototype})

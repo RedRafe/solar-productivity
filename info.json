@@ -1,12 +1,13 @@
 {
   "name": "solar-productivity",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "title": "Solar Productivity",
   "author": "RedRafe",
   "source": "https://github.com/RedRafe/solar-productivity",
   "homepage": "https://mods.factorio.com/mod/solar-productivity",
   "dependencies": [
     "base >= 1.1.0",
+    "(?) 248k",
     "(?) Advanced-Electric-Revamped-v16",
     "(?) advanced-green-power",
     "(?) Advanced-Solar-and-Accumulator",

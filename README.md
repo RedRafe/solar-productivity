@@ -40,6 +40,7 @@ Solar Productivity offers 2 in-game commands that you can type in the console to
 Please feel free to report any known issue! :) 
 
 Already compatible with:
+- [248k](https://mods.factorio.com/mod/248k)
 - [Advanced Solar](https://mods.factorio.com/mod/Advanced-Solar)
 - [Advanced Solar and Accumulator](https://mods.factorio.com/mod/Advanced-Solar-and-Accumulator)
 - [Advanced Solar High Resolution](https://mods.factorio.com/mod/Advanced-Electric-Revamped-v16)

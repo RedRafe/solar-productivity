@@ -20,6 +20,11 @@ return {
     accumulators = {}
   },
   {
+    mod = "248k",
+    solar_panels = {"el_solar_entity"},
+    accumulators = {}
+  },
+  {
     mod = "Advanced-Solar",
     solar_panels = {"advanced-solar", "elite-solar"},
     accumulators = {"advanced-accumulator", "elite-accumulator"}

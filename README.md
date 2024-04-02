@@ -38,7 +38,6 @@ Solar Productivity offers 2 in-game commands that you can type in the console to
 2. *`/sp-transition`* -> Removes all solar productivity upgrades from all surfaces, useful before removing Solar Productivity mod from the savefile
 
 Please feel free to report any known issue! :) 
-
 Already compatible with:
 - [248k](https://mods.factorio.com/mod/248k)
 - [Advanced Solar](https://mods.factorio.com/mod/Advanced-Solar)
@@ -62,3 +61,5 @@ Already compatible with:
 - [SF Advanced Solar](https://mods.factorio.com/mod/Speckled-advanced-solar)
 - [Skandragon's Advanced Solar](https://mods.factorio.com/mod/skan-advanced-solar)
 - [Zombies Extended - Power](https://mods.factorio.com/mod/zombiesextended-power)
+
+*Join my [Discord](https://discord.gg/pq6bWs8KTY)*

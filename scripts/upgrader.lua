@@ -90,6 +90,12 @@ local function update_prototype(old)
       table.insert(connections, connection)
     end
   end
+  
+  local output_signal = nil
+  local control_behavior = old.get_control_behavior()
+  if control_behavior ~= nil then
+    output_signal = control_behavior.output_signal
+  end
 
   old.destroy()
 
@@ -106,6 +112,14 @@ local function update_prototype(old)
     for ___, connection in pairs(connections) do
       local connected = new.connect_neighbour(connection);
     end
+  end
+  
+  control_behavior = new.get_control_behavior()
+  if control_behavior ~= nil then
+    if output_signal == nil then
+      output_signal = { type="virtual", name="" }
+    end
+    control_behavior.output_signal = output_signal
   end
 
   if new and new.valid and damage > 0 then

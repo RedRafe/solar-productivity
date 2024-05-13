@@ -82,6 +82,14 @@ local function update_prototype(old)
   local position  = old.position
   local player    = old.last_user
   local damage    = old.prototype.max_health - old.health
+  
+  local connections = nil;
+  if old.circuit_connected_entities ~= nil then
+    connections = {}
+    for ___, connection in pairs(old.circuit_connection_definitions) do
+      table.insert(connections, connection)
+    end
+  end
 
   old.destroy()
 
@@ -93,6 +101,12 @@ local function update_prototype(old)
     create_build_effect_smoke = false,
     raise_built = true,
   })
+  
+  if connections ~= nil then
+    for ___, connection in pairs(connections) do
+      local connected = new.connect_neighbour(connection);
+    end
+  end
 
   if new and new.valid and damage > 0 then
     new.damage(damage, game.forces.neutral)

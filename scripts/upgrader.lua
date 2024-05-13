@@ -97,6 +97,8 @@ local function update_prototype(old)
     output_signal = control_behavior.output_signal
   end
 
+  local energy = old.energy
+
   old.destroy()
 
   local new = surface.create_entity({
@@ -121,6 +123,8 @@ local function update_prototype(old)
     end
     control_behavior.output_signal = output_signal
   end
+  
+  new.energy = energy
 
   if new and new.valid and damage > 0 then
     new.damage(damage, game.forces.neutral)

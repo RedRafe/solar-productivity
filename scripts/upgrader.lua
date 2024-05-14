@@ -82,6 +82,22 @@ local function update_prototype(old)
   local position  = old.position
   local player    = old.last_user
   local damage    = old.prototype.max_health - old.health
+  
+  local connections = nil;
+  if old.circuit_connected_entities ~= nil then
+    connections = {}
+    for ___, connection in pairs(old.circuit_connection_definitions) do
+      table.insert(connections, connection)
+    end
+  end
+  
+  local output_signal = nil
+  local control_behavior = old.get_control_behavior()
+  if control_behavior ~= nil then
+    output_signal = control_behavior.output_signal
+  end
+
+  local energy = old.energy
 
   old.destroy()
 
@@ -93,6 +109,22 @@ local function update_prototype(old)
     create_build_effect_smoke = false,
     raise_built = true,
   })
+  
+  if connections ~= nil then
+    for ___, connection in pairs(connections) do
+      local connected = new.connect_neighbour(connection);
+    end
+  end
+  
+  control_behavior = new.get_control_behavior()
+  if control_behavior ~= nil then
+    if output_signal == nil then
+      output_signal = { type="virtual", name="" }
+    end
+    control_behavior.output_signal = output_signal
+  end
+  
+  new.energy = energy
 
   if new and new.valid and damage > 0 then
     new.damage(damage, game.forces.neutral)

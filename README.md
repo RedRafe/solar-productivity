@@ -11,6 +11,8 @@ Increase the efficiency of renewable sources of energy by progressing through te
 
 - Simulate the technological progress related to solar panels and accumulators as you invest more and more resources in this project
 
+- Very UPS efficient since v4.0.0! Custom settings under `Mod settings -> Map settings` to tweak the update interval
+
 ## Progression
 
 | **LEVEL** | **COST**  | **PACKS**      | **BONUS** |
@@ -25,6 +27,9 @@ Increase the efficiency of renewable sources of energy by progressing through te
 ## Translation
 Available languages:
 - English (en)
+- Polish (pl)
+- Russian (ru)
+- Chinese (zh)
 
 You can help by translating this mod into your language. Any new translations will be included in the next release.
 

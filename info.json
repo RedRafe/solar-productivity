@@ -1,6 +1,6 @@
 {
   "name": "solar-productivity",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "title": "Solar Productivity",
   "author": "RedRafe",
   "source": "https://github.com/RedRafe/solar-productivity",
@@ -26,7 +26,8 @@
     "(?) Speckled-advanced-solar",
     "(?) zombiesextended-power",
     "(?) Advanced-Electric-Revamped-GOR-v16",
-    "(?) Lindors-GOR-Advanced-Solar"
+    "(?) Lindors-GOR-Advanced-Solar",
+    "(?) IndustrialRevolution3"
   ],
   "description": "Increase the efficiency of Solar panels and Accumulators by progressing through technology!",
   "factorio_version": "1.1"

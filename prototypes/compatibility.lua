@@ -89,7 +89,12 @@ return {
     solar_panels = {"solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4", "solar-panel-mk5", "solar-panel-mk6", "solar-panel-mk7", "solar-panel-mk8"},
     accumulators = {"accumulator-mk2", "accumulator-mk3", "accumulator-mk4", "accumulator-mk5", "accumulator-mk6", "accumulator-mk7", "accumulator-mk8"}
   },
-    {
+  {
+    mod = "IndustrialRevolution3",
+    solar_panels = {"solar-array"},
+    accumulators = {}
+  },
+  {
     mod = "Lindors-Advanced-Solar",
     solar_panels = {"solar-panel-mk1", "solar-panel-mk2", "solar-panel-mk3", "solar-panel-mk4", "solar-panel-mk5", "solar-panel-mk6", "solar-panel-mk7", "solar-panel-mk8"},
     accumulators = {"accumulator-mk1", "accumulator-mk2", "accumulator-mk3", "accumulator-mk4", "accumulator-mk5", "accumulator-mk6", "accumulator-mk7", "accumulator-mk8"}

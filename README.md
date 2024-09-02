@@ -27,6 +27,7 @@ Increase the efficiency of renewable sources of energy by progressing through te
 ## Translation
 Available languages:
 - English (en)
+- French (fr)
 - Polish (pl)
 - Russian (ru)
 - Chinese (zh)

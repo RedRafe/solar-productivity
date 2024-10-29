@@ -74,6 +74,31 @@ end
 
 -- ============================================================================
 
+local function transfer_properties(old, new)
+  if old.energy then
+    new.energy = old.energy
+  end
+
+  local damage = old.prototype.get_max_health(old.quality) - old.health
+  if damage > 0 then
+    new.damage(damage, game.forces.neutral)
+  end
+
+  for wire_id, connector in pairs(old.get_wire_connectors(false)) do
+    local link = new.get_wire_connector(wire_id, true)
+    for _, v in pairs(connector.connections) do
+      link.connect_to(v.target, false, v.origin)
+    end
+  end
+
+  local old_cb = old.get_control_behavior()
+  if old_cb and old_cb.valid then
+    local new_cb = new.get_or_create_control_behavior()
+    new_cb.read_charge = old_cb.read_charge
+    new_cb.output_signal = old_cb.output_signal
+  end
+end
+
 --- upgrade prototype to the higher level
 ---@param old LuaEntity
 local function update_prototype(old)
@@ -94,37 +119,16 @@ local function update_prototype(old)
   if old_name == new_name then
     return
   end
-  if not game.entity_prototypes[new_name] then
+  if not prototypes.entity[new_name] then
     return
   end
 
-  local surface = old.surface
-  local position = old.position
-  local player = old.last_user
-  local damage = old.prototype.max_health - old.health
-  local energy = old.energy
-
-  local connections = nil;
-  if old.circuit_connected_entities ~= nil then
-    connections = {}
-    for ___, connection in pairs(old.circuit_connection_definitions) do
-      table.insert(connections, connection)
-    end
-  end
-
-  local output_signal = nil
-  local control_behavior = old.get_control_behavior()
-  if control_behavior ~= nil then
-    output_signal = control_behavior.output_signal
-  end
-
-  old.destroy()
-
-  local new = surface.create_entity({
+  local new = old.surface.create_entity({
     name = new_name,
-    position = position,
-    force = force,
-    player = player,
+    position = old.position,
+    force = old.force,
+    player = old.last_user,
+    quality = old.quality,
     create_build_effect_smoke = false,
     raise_built = false,
   })
@@ -133,25 +137,8 @@ local function update_prototype(old)
     return
   end
 
-  if connections ~= nil then
-    for ___, connection in pairs(connections) do
-      local connected = new.connect_neighbour(connection);
-    end
-  end
-
-  control_behavior = new.get_control_behavior()
-  if control_behavior ~= nil then
-    if output_signal == nil then
-      output_signal = { type = 'virtual', name = '' }
-    end
-    control_behavior.output_signal = output_signal
-  end
-
-  new.energy = energy
-
-  if damage > 0 then
-    new.damage(damage, game.forces.neutral)
-  end
+  transfer_properties(old, new)
+  old.destroy()
 end
 
 -- ============================================================================
@@ -250,38 +237,16 @@ local function downgrade_prototype(old)
   if old_name == new_name then
     return
   end
-  if not game.entity_prototypes[new_name] then
+  if not prototypes.entity[new_name] then
     return
   end
 
-  local force = old.force
-  local surface = old.surface
-  local position = old.position
-  local player = old.last_user
-  local damage = old.prototype.max_health - old.health
-  local energy = old.energy
-
-  local connections = nil;
-  if old.circuit_connected_entities ~= nil then
-    connections = {}
-    for ___, connection in pairs(old.circuit_connection_definitions) do
-      table.insert(connections, connection)
-    end
-  end
-
-  local output_signal = nil
-  local control_behavior = old.get_control_behavior()
-  if control_behavior ~= nil then
-    output_signal = control_behavior.output_signal
-  end
-
-  old.destroy()
-
-  local new = surface.create_entity({
+  local new = old.surface.create_entity({
     name = new_name,
-    position = position,
-    force = force,
-    player = player,
+    position = old.position,
+    force = old.force,
+    player = old.last_user,
+    quality = old.quality,
     create_build_effect_smoke = false,
     raise_built = false,
   })
@@ -290,25 +255,8 @@ local function downgrade_prototype(old)
     return
   end
 
-  if connections ~= nil then
-    for ___, connection in pairs(connections) do
-      local connected = new.connect_neighbour(connection);
-    end
-  end
-
-  control_behavior = new.get_control_behavior()
-  if control_behavior ~= nil then
-    if output_signal == nil then
-      output_signal = { type = 'virtual', name = '' }
-    end
-    control_behavior.output_signal = output_signal
-  end
-
-  new.energy = energy
-
-  if damage > 0 then
-    new.damage(damage, game.forces.neutral)
-  end
+  transfer_properties(old, new)
+  old.destroy()
 end
 
 -- ============================================================================

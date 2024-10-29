@@ -1,34 +1,18 @@
 local SP = require "prototypes.shared"
-
-local technology_icons = function()
-  return {
-    {
-      icon = "__base__/graphics/technology/solar-energy.png",
-      icon_size = 256,
-      icon_mipmaps = 4
-    },
-    {
-      icon = "__core__/graphics/icons/technology/constants/constant-mining-productivity.png",
-      icon_size = 128,
-      icon_mipmaps = 3,
-      shift = {100, 100}
-    }
-  }
-end
+local str = tostring
 
 data:extend({
   -- SP-1
   {
     type = "technology",
     name = SP.TECHNOLOGY.."1",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    icons = technology_icons(),
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/solar-energy.png"),
+    localised_description = {"technology-description.solar-productivity", str(SP.BONUS[1] * 100)},
     effects =
     {
       {
         type = "nothing",
-        effect_description = {"effect-description.solar-productivity-1"}
+        effect_description = {"effect-description.solar-productivity", str(SP.BONUS[1] * 100)}
       },
     },
     prerequisites = {"solar-energy", "electric-energy-accumulators"},
@@ -49,14 +33,13 @@ data:extend({
   {
     type = "technology",
     name = SP.TECHNOLOGY.."2",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    icons = technology_icons(),
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/solar-energy.png"),
+    localised_description = {"technology-description.solar-productivity", str(SP.BONUS[2] * 100)},
     effects =
     {
       {
         type = "nothing",
-        effect_description = {"effect-description.solar-productivity-2"}
+        effect_description = {"effect-description.solar-productivity", str(SP.BONUS[2] * 100)}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."1"},
@@ -78,14 +61,13 @@ data:extend({
   {
     type = "technology",
     name = SP.TECHNOLOGY.."3",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    icons = technology_icons(),
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/solar-energy.png"),
+    localised_description = {"technology-description.solar-productivity", str(SP.BONUS[3] * 100)},
     effects =
     {
       {
         type = "nothing",
-        effect_description = {"effect-description.solar-productivity-3"}
+        effect_description = {"effect-description.solar-productivity", str(SP.BONUS[3] * 100)}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."2"},
@@ -109,14 +91,13 @@ data:extend({
   {
     type = "technology",
     name = SP.TECHNOLOGY.."4",
-    icon_size = 256,
-    icon_mipmaps = 4,
-    icons = technology_icons(),
+    icons = util.technology_icon_constant_productivity("__base__/graphics/technology/solar-energy.png"),
+    localised_description = {"technology-description.solar-productivity", str(SP.BONUS[4] * 100)},
     effects =
     {
       {
         type = "nothing",
-        effect_description = {"effect-description.solar-productivity-4"}
+        effect_description = {"effect-description.solar-productivity", str(SP.BONUS[4] * 100)}
       },
     },
     prerequisites = {SP.TECHNOLOGY.."3", "space-science-pack"},

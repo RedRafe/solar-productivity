@@ -4,7 +4,7 @@ local technology_icons = function()
   return {
     {
       icon = "__base__/graphics/technology/solar-energy.png",
-      icon_size = 256, 
+      icon_size = 256,
       icon_mipmaps = 4
     },
     {
@@ -23,7 +23,7 @@ data:extend({
     name = SP.TECHNOLOGY.."1",
     icon_size = 256,
     icon_mipmaps = 4,
-    icons = technology_icons(),    
+    icons = technology_icons(),
     effects =
     {
       {
@@ -51,7 +51,7 @@ data:extend({
     name = SP.TECHNOLOGY.."2",
     icon_size = 256,
     icon_mipmaps = 4,
-    icons = technology_icons(), 
+    icons = technology_icons(),
     effects =
     {
       {
@@ -80,7 +80,7 @@ data:extend({
     name = SP.TECHNOLOGY.."3",
     icon_size = 256,
     icon_mipmaps = 4,
-    icons = technology_icons(), 
+    icons = technology_icons(),
     effects =
     {
       {

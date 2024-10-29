@@ -1,12 +1,12 @@
 {
   "name": "solar-productivity",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "title": "Solar Productivity",
-  "author": "RedRafe",
+  "author": "RedRafe, Rugal",
   "source": "https://github.com/RedRafe/solar-productivity",
   "homepage": "https://mods.factorio.com/mod/solar-productivity",
   "dependencies": [
-    "base >= 1.1.0",
+    "base >= 2.0",
     "(?) 248k",
     "(?) Advanced-Electric-Revamped-v16",
     "(?) advanced-green-power",
@@ -30,5 +30,5 @@
     "(?) IndustrialRevolution3"
   ],
   "description": "Increase the efficiency of Solar panels and Accumulators by progressing through technology!",
-  "factorio_version": "1.1"
+  "factorio_version": "2.0"
 }

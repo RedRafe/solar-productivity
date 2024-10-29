@@ -17,10 +17,10 @@ Increase the efficiency of renewable sources of energy by progressing through te
 
 | **LEVEL** | **COST**  | **PACKS**      | **BONUS** |
 |:---------:|:----------|----------------|:---------:|
-| 1         | 250       | RG             | \+40%     |
-| 2         | 500       | RGB            | \+30%     |
-| 3         | 1'000     | RGBPY          | \+20%     |
-| 4\-50     | 2'500 x L | RGBPY \+ Space | \+15%     |
+| 1         | 250       | RG             | \+15%     |
+| 2         | 500       | RGB            | \+10%     |
+| 3         | 1'000     | RGBPY          | \+10%     |
+| 4\-50     | 2'500 x L | RGBPY \+ Space | \+5%     |
 
 ![researches](https://github.com/RedRafe/solar-productivity/blob/main/archive/researches.png?raw=true)
 

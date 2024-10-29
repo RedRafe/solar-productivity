@@ -5,11 +5,11 @@ local sutil = require "prototypes.string-util"
 
 ---@param prototype_name string
 local function make_solar_panel_variations(prototype_name)
-  if not prototype_name or not data.raw["solar-panel"][prototype_name] or not data.raw["solar-panel"][prototype_name].production then 
+  if not prototype_name or not data.raw["solar-panel"][prototype_name] or not data.raw["solar-panel"][prototype_name].production then
     log("SP: invalid SolarPanelPrototype")
     return
   end
-  
+
   local base = data.raw["solar-panel"][prototype_name]
   local bonus = 1
   local max_bonus = #SP.BONUS
@@ -17,16 +17,16 @@ local function make_solar_panel_variations(prototype_name)
   if base.minable and base.minable.result then
     result = base.minable.result
   end
-  
+
   for level = 1, SP.LEVELS do
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
     local prototype = table.deepcopy(base)
-    
+
     prototype.name            = SP.ENTITY..tostring(level).."-"..base.name
     prototype.localised_name  = {"entity-name."..base.name}
     prototype.placeable_by    = { item = result, count = 1 }
     prototype.production      = sutil.msv(base.production, bonus)
-    
+
     data:extend({prototype})
   end
 end
@@ -35,20 +35,20 @@ end
 
 ---@param prototype_name string
 local function make_accumulator_variations(prototype_name)
-  if not prototype_name or not data.raw["accumulator"][prototype_name] or not data.raw["accumulator"][prototype_name].energy_source  then 
+  if not prototype_name or not data.raw["accumulator"][prototype_name] or not data.raw["accumulator"][prototype_name].energy_source  then
     log("SP: invalid AccumulatorPrototype")
     return
   end
-  
+
   local base = table.deepcopy(data.raw["accumulator"][prototype_name])
   local bes = base.energy_source
   local bonus = 1
   local max_bonus = #SP.BONUS
-  
+
   for level = 1, SP.LEVELS do
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
     local prototype = table.deepcopy(base)
-    
+
     prototype.name            = SP.ENTITY..tostring(level).."-"..base.name
     prototype.localised_name  = {"entity-name."..base.name}
     prototype.placeable_by    = { item = base.name, count = 1 }
@@ -60,7 +60,7 @@ local function make_accumulator_variations(prototype_name)
       output_flow_limit       = sutil.msv(bes.output_flow_limit, bonus),
       render_no_power_icon    = bes.render_no_power_icon
     }
-    
+
     data:extend({prototype})
   end
 end

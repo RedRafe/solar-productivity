@@ -5,10 +5,10 @@ SOL_PROD.LEVELS = 50
 
 -- Bonus for each level
 SOL_PROD.BONUS = {
-  [1] = 0.40,
-  [2] = 0.30,
-  [3] = 0.20,
-  [4] = 0.15
+  [1] = 0.15,
+  [2] = 0.1,
+  [3] = 0.1,
+  [4] = 0.05
 }
 
 SOL_PROD.ENTITY = "sp-"

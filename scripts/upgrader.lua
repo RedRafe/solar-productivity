@@ -8,16 +8,16 @@ local ceil  = math.ceil
 
 -- ============================================================================
 
---- init global.level index for the force
+--- init storage.level index for the force
 ---@param force LuaForce
 local function init_force(force)
-  global.levels = global.levels or {}
-  global.levels[force.index] = 0
+  storage.levels = storage.levels or {}
+  storage.levels[force.index] = 0
 end
 
 -- ============================================================================
 
---- add new force to global.levels index
+--- add new force to storage.levels index
 --- @param e EventData.on_force_created
 local function on_force_created(e)
   init_force(e.force)
@@ -25,12 +25,12 @@ end
 
 -- ============================================================================
 local function update_settings()
-	global.interval = (settings.global['sp:interval'].value or 5) * 60
+	storage.interval = (settings.global['sp-interval'].value or 5) * 60
 end
 
 -- ============================================================================
 
---- update the global.levels for the force
+--- update the storage.levels for the force
 ---@param force LuaForce
 local function update_force_level(force)
   if not force or not force.valid or not force.index then
@@ -59,13 +59,13 @@ local function update_force_level(force)
     l = l + 1
   end
 
-  global.levels = global.levels or {}
-  global.levels[force.index] = _max
+  storage.levels = storage.levels or {}
+  storage.levels[force.index] = _max
 end
 
 -- ============================================================================
 
---- updates the global.levels for each force
+--- updates the storage.levels for each force
 local function update_forces_levels()
   for ___, force in pairs(game.forces) do
     update_force_level(force)
@@ -82,7 +82,7 @@ local function update_prototype(old)
   end
 
   local force = old.force
-  local level = global.levels[force.index]
+  local level = storage.levels[force.index]
   if not level or level == 0 then
     return
   end
@@ -172,7 +172,7 @@ local function on_research_finished(event)
   end
 
   update_force_level(force)
-  local to_update = global.to_update
+  local to_update = storage.to_update
 
   for ___, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered { force = force, type = { 'solar-panel', 'accumulator' } }
@@ -199,7 +199,7 @@ local function on_research_reversed(event)
   end
 
   update_force_level(force)
-  local to_update = global.to_update
+  local to_update = storage.to_update
 
   for ___, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered { force = force, type = { 'solar-panel', 'accumulator' } }
@@ -218,14 +218,14 @@ local function on_built(event)
   if not entity or not entity.valid then
     return
   end
-  push(global.to_update, entity)
+  push(storage.to_update, entity)
 end
 
 -- ============================================================================
 
 --- will upgrade each entity, if posssible
 local function update_entities()
-  local to_update = global.to_update
+  local to_update = storage.to_update
 
   for ___, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered { type = { 'solar-panel', 'accumulator' } }
@@ -315,7 +315,7 @@ end
 
 --- replaces higher tiers with the base one
 local function replace_all_upgrades()
-  local to_downgrade = global.to_downgrade
+  local to_downgrade = storage.to_downgrade
 
   for ___, surface in pairs(game.surfaces) do
     local entities = surface.find_entities_filtered { type = { 'solar-panel', 'accumulator' } }
@@ -339,11 +339,11 @@ end
 -- ============================================================================
 
 local function on_tick()
-  local to_update = global.to_update
-  local to_downgrade = global.to_downgrade
+  local to_update = storage.to_update
+  local to_downgrade = storage.to_downgrade
 
-  local u_size = ceil(size(to_update) / global.interval)
-  local d_size = ceil(size(to_downgrade) / global.interval)
+  local u_size = ceil(size(to_update) / storage.interval)
+  local d_size = ceil(size(to_downgrade) / storage.interval)
 
   while u_size > 0 do
     update_prototype(pop(to_update))
@@ -375,9 +375,9 @@ Upgrader.events = {
 }
 
 Upgrader.on_init = function()
-  global.levels = {}
-  global.to_update = Queue.new()
-  global.to_downgrade = Queue.new()
+  storage.levels = {}
+  storage.to_update = Queue.new()
+  storage.to_downgrade = Queue.new()
 
   set_filters()
   update_settings()

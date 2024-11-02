@@ -26,6 +26,7 @@ local function make_solar_panel_variations(prototype_name)
     prototype.localised_name  = {"entity-name."..base.name}
     prototype.placeable_by    = { item = result, count = 1 }
     prototype.production      = sutil.msv(base.production, bonus)
+    prototype.hidden          = true
 
     data:extend({prototype})
   end
@@ -60,6 +61,7 @@ local function make_accumulator_variations(prototype_name)
       output_flow_limit       = sutil.msv(bes.output_flow_limit, bonus),
       render_no_power_icon    = bes.render_no_power_icon
     }
+    prototype.hidden          = true
 
     data:extend({prototype})
   end

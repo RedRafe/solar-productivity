@@ -282,6 +282,7 @@ local function set_filters()
   script.set_event_filter(defines.events.on_robot_built_entity --[[@as uint]] , upgrader_filter)
   script.set_event_filter(defines.events.script_raised_built --[[@as uint]] , upgrader_filter)
   script.set_event_filter(defines.events.script_raised_revive --[[@as uint]] , upgrader_filter)
+  script.set_event_filter(defines.events.on_space_platform_built_entity --[[@as uint]] , upgrader_filter)
 end
 
 -- ============================================================================
@@ -319,6 +320,7 @@ Upgrader.events = {
   [defines.events.on_robot_built_entity] = on_built,
   [defines.events.script_raised_built]   = on_built,
   [defines.events.script_raised_revive]  = on_built,
+  [defines.events.on_space_platform_built_entity] = on_built,
   [defines.events.on_runtime_mod_setting_changed] = update_settings,
 }
 

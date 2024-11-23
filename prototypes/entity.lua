@@ -23,7 +23,7 @@ local function make_solar_panel_variations(prototype_name)
     local prototype = table.deepcopy(base)
 
     prototype.name            = SP.ENTITY..tostring(level)..'-'..base.name
-    prototype.localised_name  = {'entity-name.'..base.name}
+    prototype.localised_name  = prototype.localised_name or {'entity-name.'..base.name}
     prototype.placeable_by    = { item = result, count = 1 }
     prototype.production      = sutil.msv(base.production, bonus)
     prototype.hidden_in_factoriopedia = true
@@ -54,7 +54,7 @@ local function make_accumulator_variations(prototype_name)
     local prototype = table.deepcopy(base)
 
     prototype.name            = SP.ENTITY..tostring(level)..'-'..base.name
-    prototype.localised_name  = {'entity-name.'..base.name}
+    prototype.localised_name  = prototype.localised_name or {'entity-name.'..base.name}
     prototype.placeable_by    = { item = base.name, count = 1 }
     prototype.energy_source   = {
       type                    = bes.type,

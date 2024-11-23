@@ -13,10 +13,10 @@ SOL_PROD.BONUS = {
   [4] = 0.05 * multiplier,
 }
 
-SOL_PROD.ENTITY = "sp-"
+SOL_PROD.ENTITY = 'sp-'
 
-SOL_PROD.TECHNOLOGY = "solar-productivity-"
+SOL_PROD.TECHNOLOGY = 'solar-productivity-'
 
-SOL_PROD.COMPATIBILITY_LIST = require "prototypes.compatibility"
+SOL_PROD.COMPATIBILITY_LIST = require 'prototypes.compatibility'
 
 return SOL_PROD

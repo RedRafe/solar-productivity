@@ -1,16 +1,16 @@
-local SP    = require "prototypes.shared"
-local sutil = require "prototypes.string-util"
+local SP    = require 'prototypes.shared'
+local sutil = require 'prototypes.string-util'
 
 -- ============================================================================
 
 ---@param prototype_name string
 local function make_solar_panel_variations(prototype_name)
-  if not prototype_name or not data.raw["solar-panel"][prototype_name] or not data.raw["solar-panel"][prototype_name].production then
-    log("SP: invalid SolarPanelPrototype")
+  if not prototype_name or not data.raw['solar-panel'][prototype_name] or not data.raw['solar-panel'][prototype_name].production then
+    log('SP: invalid SolarPanelPrototype')
     return
   end
 
-  local base = data.raw["solar-panel"][prototype_name]
+  local base = data.raw['solar-panel'][prototype_name]
   local bonus = 1
   local max_bonus = #SP.BONUS
   local result = base.name
@@ -22,11 +22,14 @@ local function make_solar_panel_variations(prototype_name)
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
     local prototype = table.deepcopy(base)
 
-    prototype.name            = SP.ENTITY..tostring(level).."-"..base.name
-    prototype.localised_name  = {"entity-name."..base.name}
+    prototype.name            = SP.ENTITY..tostring(level)..'-'..base.name
+    prototype.localised_name  = {'entity-name.'..base.name}
     prototype.placeable_by    = { item = result, count = 1 }
     prototype.production      = sutil.msv(base.production, bonus)
-    prototype.hidden          = true
+    prototype.hidden_in_factoriopedia = true
+    if base.next_upgrade then
+      prototype.next_upgrade = SP.ENTITY..tostring(level)..'-'..base.next_upgrade
+    end
 
     data:extend({prototype})
   end
@@ -36,12 +39,12 @@ end
 
 ---@param prototype_name string
 local function make_accumulator_variations(prototype_name)
-  if not prototype_name or not data.raw["accumulator"][prototype_name] or not data.raw["accumulator"][prototype_name].energy_source  then
-    log("SP: invalid AccumulatorPrototype")
+  if not prototype_name or not data.raw['accumulator'][prototype_name] or not data.raw['accumulator'][prototype_name].energy_source  then
+    log('SP: invalid AccumulatorPrototype')
     return
   end
 
-  local base = table.deepcopy(data.raw["accumulator"][prototype_name])
+  local base = table.deepcopy(data.raw['accumulator'][prototype_name])
   local bes = base.energy_source
   local bonus = 1
   local max_bonus = #SP.BONUS
@@ -50,8 +53,8 @@ local function make_accumulator_variations(prototype_name)
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
     local prototype = table.deepcopy(base)
 
-    prototype.name            = SP.ENTITY..tostring(level).."-"..base.name
-    prototype.localised_name  = {"entity-name."..base.name}
+    prototype.name            = SP.ENTITY..tostring(level)..'-'..base.name
+    prototype.localised_name  = {'entity-name.'..base.name}
     prototype.placeable_by    = { item = base.name, count = 1 }
     prototype.energy_source   = {
       type                    = bes.type,
@@ -61,7 +64,10 @@ local function make_accumulator_variations(prototype_name)
       output_flow_limit       = sutil.msv(bes.output_flow_limit, bonus),
       render_no_power_icon    = bes.render_no_power_icon
     }
-    prototype.hidden          = true
+    prototype.hidden_in_factoriopedia = true
+    if base.next_upgrade then
+      prototype.next_upgrade = SP.ENTITY..tostring(level)..'-'..base.next_upgrade
+    end
 
     data:extend({prototype})
   end

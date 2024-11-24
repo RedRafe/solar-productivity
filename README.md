@@ -65,6 +65,7 @@ Already compatible with:
 - [Factorio Power redux](https://mods.factorio.com/mod/Factorio_Power_RE)
 - [Krastorio2](https://mods.factorio.com/mod/Krastorio2)
 - [Lindors Advanced Solar](https://mods.factorio.com/mod/Lindors-Advanced-Solar)
+- [Personal Transformer 2](https://mods.factorio.com/mod/PersonalTransformer2)
 - [Phidias Collection](https://mods.factorio.com/mod/PHI-CL)
 - [Space Exploration](https://mods.factorio.com/mod/space-exploration)
 - [SF Advanced Solar](https://mods.factorio.com/mod/Speckled-advanced-solar)

@@ -1,4 +1,4 @@
-local SP = require 'prototypes.shared'
+local SP = require '__solar-productivity__.prototypes.shared'
 local str = tostring
 
 data:extend({

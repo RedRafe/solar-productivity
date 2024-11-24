@@ -1,11 +1,15 @@
-local SP    = require 'prototypes.shared'
-local sutil = require 'prototypes.string-util'
+local SP    = require '__solar-productivity__.prototypes.shared'
+local sutil = require '__solar-productivity__.prototypes.string-util'
 
 -- ============================================================================
 
 ---@param prototype_name string
 local function make_solar_panel_variations(prototype_name)
-  if not prototype_name or not data.raw['solar-panel'][prototype_name] or not data.raw['solar-panel'][prototype_name].production then
+  if not prototype_name
+    or not data.raw['solar-panel'][prototype_name]
+    or not data.raw['solar-panel'][prototype_name].production
+    or (SP_BLACKLIST and SP_BLACKLIST[prototype_name])
+  then
     log('SP: invalid SolarPanelPrototype')
     return
   end
@@ -33,13 +37,18 @@ local function make_solar_panel_variations(prototype_name)
 
     data:extend({prototype})
   end
+  return true
 end
 
 -- ============================================================================
 
 ---@param prototype_name string
 local function make_accumulator_variations(prototype_name)
-  if not prototype_name or not data.raw['accumulator'][prototype_name] or not data.raw['accumulator'][prototype_name].energy_source  then
+  if not prototype_name 
+    or not data.raw['accumulator'][prototype_name]
+    or not data.raw['accumulator'][prototype_name].energy_source
+    or (SP_BLACKLIST and SP_BLACKLIST[prototype_name])
+  then
     log('SP: invalid AccumulatorPrototype')
     return
   end
@@ -71,17 +80,12 @@ local function make_accumulator_variations(prototype_name)
 
     data:extend({prototype})
   end
+  return true
 end
 
 -- ============================================================================
 
-for ___, preset in pairs(SP.COMPATIBILITY_LIST) do
-  if mods[preset.mod] then
-    for ___, solar in pairs(preset.solar_panels) do
-      make_solar_panel_variations(solar)
-    end
-    for ___, accu in pairs(preset.accumulators) do
-      make_accumulator_variations(accu)
-    end
-  end
-end
+return {
+  make_solar_panel_variations = make_solar_panel_variations,
+  make_accumulator_variations = make_accumulator_variations,
+}

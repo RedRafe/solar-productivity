@@ -5,6 +5,7 @@ _G.SP_BLACKLIST = {
   ['personal-transformer-output-entity'] = true,     -- PersonalTransformer2
   ['personal-transformer-mk2-output-entity'] = true, -- PersonalTransformer2
   ['personal-transformer-mk3-output-entity'] = true, -- PersonalTransformer2
+  ['james-rail-accumulator'] = true, -- James' Electric Trains Plus
 }
 
 require '__solar-productivity__.prototypes.technology'

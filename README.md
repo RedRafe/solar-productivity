@@ -63,6 +63,7 @@ Already compatible with:
 - [FactorioExtendedPlus - Power](https://mods.factorio.com/mod/FactorioExtended-Plus-Power)
 - [FactorioExtended Plus - CompoundSolars](https://mods.factorio.com/mod/FactorioExtended-Plus-CompoundSolars)
 - [Factorio Power redux](https://mods.factorio.com/mod/Factorio_Power_RE)
+- [James' Electric Trains Plus](https://mods.factorio.com/mod/James-Train-Mod)
 - [Krastorio2](https://mods.factorio.com/mod/Krastorio2)
 - [Lindors Advanced Solar](https://mods.factorio.com/mod/Lindors-Advanced-Solar)
 - [Personal Transformer 2](https://mods.factorio.com/mod/PersonalTransformer2)

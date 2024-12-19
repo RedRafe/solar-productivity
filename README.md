@@ -53,6 +53,7 @@ Already compatible with:
 - [Advanced Green Power](https://mods.factorio.com/mod/advanced-green-power)
 - [Alien Loot Economy](https://mods.factorio.com/mod/alien-module)
 - [Bio Industries](https://mods.factorio.com/mod/Bio_Industries)
+- [Big Accumulator](https://mods.factorio.com/mod/snouz-big-accumulator)
 - [Big Energy](https://mods.factorio.com/mod/big-energy-solar-wind-and-accumulator)
 - [Bob's Power](https://mods.factorio.com/mod/bobpower)
 - [Compact Solar](https://mods.factorio.com/mod/compact-solar)

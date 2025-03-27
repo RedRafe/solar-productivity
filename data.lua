@@ -7,6 +7,7 @@ _G.SP_BLACKLIST = {
   ['personal-transformer-mk3-output-entity'] = true, -- PersonalTransformer2
   ['james-rail-accumulator'] = true, -- James' Electric Trains Plus
   ['cerys-charging-rod'] = true, -- Cerys' Charging Rod
+  ['ring-teleporter'] = true, -- Transport Ring's transporter rings
 }
 
 require '__solar-productivity__.prototypes.technology'

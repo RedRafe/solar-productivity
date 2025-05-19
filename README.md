@@ -56,6 +56,7 @@ Already compatible with:
 - [Big Accumulator](https://mods.factorio.com/mod/snouz-big-accumulator)
 - [Big Energy](https://mods.factorio.com/mod/big-energy-solar-wind-and-accumulator)
 - [Bob's Power](https://mods.factorio.com/mod/bobpower)
+- [Cerys](https://mods.factorio.com/mod/Cerys-Moon-of-Fulgora)
 - [Compact Solar](https://mods.factorio.com/mod/compact-solar)
 - [Cosmicon Solar Panels](https://mods.factorio.com/mod/Cosmicon-Solar-Panels)
 - [5Dims](https://mods.factorio.com/mod/5dim_energy)

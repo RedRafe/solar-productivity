@@ -73,6 +73,7 @@ Already compatible with:
 - [Space Exploration](https://mods.factorio.com/mod/space-exploration)
 - [SF Advanced Solar](https://mods.factorio.com/mod/Speckled-advanced-solar)
 - [Skandragon's Advanced Solar](https://mods.factorio.com/mod/skan-advanced-solar)
+- [Warptorio 2.0 (Space Age)](https://mods.factorio.com/mod/warptorio-space-age)
 - [Zombies Extended - Power](https://mods.factorio.com/mod/zombiesextended-power)
 
 *Join my [Discord](https://discord.gg/pq6bWs8KTY)*

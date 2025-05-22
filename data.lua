@@ -8,6 +8,10 @@ _G.SP_BLACKLIST = {
   ['james-rail-accumulator'] = true, -- James' Electric Trains Plus
   ['cerys-charging-rod'] = true, -- Cerys' Charging Rod
   ['kr-intergalactic-transceiver'] = true, -- Krastorio2
+  ['warp-power'] = true, -- warptorio-space-age
+  ['warp-power-2'] = true, -- warptorio-space-age
+  ['warp-power-3'] = true, -- warptorio-space-age
+  
 }
 
 require '__solar-productivity__.prototypes.technology'

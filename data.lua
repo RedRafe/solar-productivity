@@ -12,6 +12,7 @@ _G.SP_BLACKLIST = {
   ['warp-power-2'] = true, -- warptorio-space-age
   ['warp-power-3'] = true, -- warptorio-space-age
   ['se-spaceship-console'] = true, -- Space Exploration
+  ['muluna-satellite-radar'] = true, -- Muluna
 }
 
 require '__solar-productivity__.prototypes.technology'

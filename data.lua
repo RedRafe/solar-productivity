@@ -13,6 +13,9 @@ _G.SP_BLACKLIST = {
   ['warp-power-3'] = true, -- warptorio-space-age
   ['se-spaceship-console'] = true, -- Space Exploration
   ['muluna-satellite-radar'] = true, -- Muluna
+  ['bi-bio-farm-hidden-panel'] = true, -- bio industries 2
+  ['bi-solar-boiler-hidden-panel'] = true, -- bio industries 2
+  ['bi-musk-mat-hidden-panel'] = true, -- bio industries 2
 }
 
 require '__solar-productivity__.prototypes.technology'

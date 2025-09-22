@@ -130,7 +130,7 @@ local function update_prototype(old)
     player = old.last_user,
     quality = old.quality,
     create_build_effect_smoke = false,
-    raise_built = false,
+    raise_built = true,
   })
 
   if not (new and new.valid) then
@@ -248,7 +248,7 @@ local function downgrade_prototype(old)
     player = old.last_user,
     quality = old.quality,
     create_build_effect_smoke = false,
-    raise_built = false,
+    raise_built = true,
   })
 
   if not (new and new.valid) then

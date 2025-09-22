@@ -16,6 +16,7 @@ _G.SP_BLACKLIST = {
   ['bi-bio-farm-hidden-panel'] = true, -- bio industries 2
   ['bi-solar-boiler-hidden-panel'] = true, -- bio industries 2
   ['bi-musk-mat-hidden-panel'] = true, -- bio industries 2
+  ['se-spaceship-console-alt'] = true, -- Space Exploration
 }
 
 require '__solar-productivity__.prototypes.technology'

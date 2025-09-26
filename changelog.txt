@@ -1,8 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.12
+Date: 2025-09-26
+  Changes:
+    - Added compatibility with Railgun Artillery
+---------------------------------------------------------------------------------------------------
 Version: 2.1.11
 Date: 2025-09-22
   Changes:
-    - Added compatibility with Space Exploration 
+    - Added compatibility with Space Exploration
     - Re-enabled raise_built = true when swapping prototypes
 ---------------------------------------------------------------------------------------------------
 Version: 2.1.10

@@ -17,6 +17,12 @@ _G.SP_BLACKLIST = {
   ['bi-solar-boiler-hidden-panel'] = true, -- bio industries 2
   ['bi-musk-mat-hidden-panel'] = true, -- bio industries 2
   ['se-spaceship-console-alt'] = true, -- Space Exploration
+  ['warp-gate'] = true, -- Dimension Warp
+  ['factory-gate'] = true, -- Dimension Warp
+  ['mining-gate'] = true, -- Dimension Warp
+  ['power-gate'] = true, -- Dimension Warp
+  ['surface-gate'] = true, -- Dimension Warp
+  ['ldinc-railgun-artillery-power-unit'] = true, -- Railgun Artillery
 }
 
 require '__solar-productivity__.prototypes.technology'

@@ -21,6 +21,9 @@ local function make_solar_panel_variations(prototype_name)
   if base.minable and base.minable.result then
     result = base.minable.result
   end
+  if not data.raw.item[result] then
+    return
+  end
 
   for level = 1, SP.LEVELS do
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
@@ -57,6 +60,13 @@ local function make_accumulator_variations(prototype_name)
   local bes = base.energy_source
   local bonus = 1
   local max_bonus = #SP.BONUS
+  local result = base.name
+  if base.minable and base.minable.result then
+    result = base.minable.result
+  end
+  if not data.raw.item[result] then
+    return
+  end
 
   for level = 1, SP.LEVELS do
     bonus = bonus + SP.BONUS[math.min(level, max_bonus)]
@@ -64,7 +74,7 @@ local function make_accumulator_variations(prototype_name)
 
     prototype.name            = SP.ENTITY..tostring(level)..'-'..base.name
     prototype.localised_name  = prototype.localised_name or {'entity-name.'..base.name}
-    prototype.placeable_by    = { item = base.name, count = 1 }
+    prototype.placeable_by    = { item = result, count = 1 }
     prototype.energy_source   = {
       type                    = bes.type,
       buffer_capacity         = sutil.msv(bes.buffer_capacity, bonus),

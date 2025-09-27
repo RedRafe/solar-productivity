@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.12
+Date: 2025-09-27
+  Changes:
+    - Added compatibility with Warp Dimensions
+    - Added compatibility with Railgun Artillery (thanks Idinc)
+---------------------------------------------------------------------------------------------------
 Version: 2.1.11
 Date: 2025-09-22
   Changes:

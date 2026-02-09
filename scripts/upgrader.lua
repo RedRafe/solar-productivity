@@ -333,6 +333,7 @@ Upgrader.on_init = function()
   storage.levels = {}
   storage.to_update = Queue.new()
   storage.to_downgrade = Queue.new()
+  storage.transitioning = false
 
   set_filters()
   update_settings()

@@ -201,6 +201,7 @@ end
 --- upgrade the entity to higher tier if possible
 ---@param event EventData.on_built_entity
 local function on_built(event)
+  if storage.transitioning then return end
   local entity = event.created_entity or event.entity or event.destination
   if not entity or not entity.valid then
     return
@@ -303,6 +304,10 @@ local function on_tick()
     downgrade_prototype(pop(to_downgrade))
     d_size = d_size - 1
   end
+
+  if storage.transitioning and size(to_downgrade) == 0 then
+    storage.transitioning = false
+  end
 end
 
 -- ============================================================================
@@ -357,6 +362,8 @@ Upgrader.add_commands = function()
   -- Usage: type "/sp-transition" in game console
   -- Removes all upgraded and places back the  base prototype
   commands.add_command('sp-transition', { 'command-help.sp-transition' }, function()
+    storage.transitioning = true
+    storage.to_update = Queue.new()  -- Clear pending upgrades
     replace_all_upgrades()
   end)
 end

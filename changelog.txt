@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.13
+Date: 2026-02-06
+  Bugfixes:
+    - Fixed /sp-transition command: downgraded entities were immediately re-upgraded because raise_built triggered on_built, queueing them back for upgrade.
+---------------------------------------------------------------------------------------------------
 Version: 2.1.12
 Date: 2025-09-27
   Changes:

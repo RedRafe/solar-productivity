@@ -68,6 +68,7 @@ Already compatible with:
 - [James' Electric Trains Plus](https://mods.factorio.com/mod/James-Train-Mod)
 - [Krastorio2](https://mods.factorio.com/mod/Krastorio2)
 - [Lindors Advanced Solar](https://mods.factorio.com/mod/Lindors-Advanced-Solar)
+- [SaveMyPower](https://mods.factorio.com/mod/SaveMyPower/)
 - [Personal Transformer 2](https://mods.factorio.com/mod/PersonalTransformer2)
 - [Phidias Collection](https://mods.factorio.com/mod/PHI-CL)
 - [Space Exploration](https://mods.factorio.com/mod/space-exploration)

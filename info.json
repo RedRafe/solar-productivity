@@ -1,6 +1,6 @@
 {
   "name": "solar-productivity",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "title": "Solar Productivity",
   "author": "RedRafe",
   "source": "https://github.com/RedRafe/solar-productivity",
@@ -21,6 +21,7 @@
     "(?) FactorioExtended-Plus-Power",
     "(?) Krastorio2",
     "(?) Lindors-Advanced-Solar",
+    "(?) SaveMyPower",
     "(?) skan-advanced-solar",
     "(?) space-exploration",
     "(?) Speckled-advanced-solar",

@@ -74,6 +74,8 @@ end
 
 -- ============================================================================
 
+--- @param old LuaEntity
+--- @param new LuaEntity
 local function transfer_properties(old, new)
   if old.energy then
     new.energy = old.energy
@@ -143,36 +145,9 @@ end
 
 -- ============================================================================
 
---- updates forces levels & entities on new solar productivity researched
----@param event EventData.on_research_finished
-local function on_research_finished(event)
-  local research = event.research
-  if not research or not research.valid then
-    return
-  end
-
-  local name = research.name
-  local force = research.force
-
-  if not sutil.starts_with(name, SP.TECHNOLOGY) then
-    return
-  end
-
-  update_force_level(force)
-  local to_update = storage.to_update
-
-  for ___, surface in pairs(game.surfaces) do
-    local entities = surface.find_entities_filtered { force = force, type = { 'solar-panel', 'accumulator' } }
-    for ___, entity in pairs(entities) do
-      push(to_update, entity)
-    end
-  end
-end
-
--- ============================================================================
-
---- updates forces levels & entities on solar productivity reversed
-local function on_research_reversed(event)
+--- updates forces levels & entities on solar productivity research level changed
+---@param event EventData.on_research_finished|EventData.on_research_reversed
+local function on_research_changed(event)
   local research = event.research
   if not research or not research.valid then
     return
@@ -318,8 +293,8 @@ local Upgrader = {}
 Upgrader.events = {
   [defines.events.on_tick]               = on_tick,
   [defines.events.on_force_created]      = on_force_created,
-  [defines.events.on_research_finished]  = on_research_finished,
-  [defines.events.on_research_reversed]  = on_research_reversed,
+  [defines.events.on_research_finished]  = on_research_changed,
+  [defines.events.on_research_reversed]  = on_research_changed,
   [defines.events.on_built_entity]       = on_built,
   [defines.events.on_entity_cloned]      = on_built,
   [defines.events.on_robot_built_entity] = on_built,
@@ -347,7 +322,6 @@ Upgrader.on_load = function()
 end
 
 Upgrader.on_configuration_changed = function()
-  set_filters()
   update_settings()
   update_forces_levels()
   update_entities()

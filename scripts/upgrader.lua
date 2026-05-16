@@ -314,13 +314,15 @@ end
 Upgrader.add_commands = function()
     -- Usage: type "/sp-update" in game console
     -- Forces the game to upgrade all entities, if possible
-    commands.add_command('sp-update', { 'command-help.sp-update' }, function()
+    commands.add_command('sp-update', { 'command-help.sp-update' }, function(event)
+        if not game.players[event.player_index].admin then return end
         update_forces_levels()
         update_entities()
     end)
     -- Usage: type "/sp-transition" in game console
     -- Removes all upgraded and places back the  base prototype
-    commands.add_command('sp-transition', { 'command-help.sp-transition' }, function()
+    commands.add_command('sp-transition', { 'command-help.sp-transition' }, function(event)
+        if not game.players[event.player_index].admin then return end
         storage.transitioning = true
         storage.to_update = Queue.new() -- Clear pending upgrades
         replace_all_upgrades()

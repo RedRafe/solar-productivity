@@ -1,121 +1,77 @@
 local SP = require '__solar-productivity__.prototypes.shared'
 local str = tostring
 
+local function create_sp_technology(level, overrides)
+  local base = {
+    type  = 'technology',
+    name  = SP.TECHNOLOGY .. level,
+    icons = util.technology_icon_constant_productivity(SP.TECHNOLOGY_ICON),
+    localised_description = {'technology-description.solar-productivity', str(SP.BONUS[level] * 100)},
+    effects = {
+      {
+        type = 'nothing',
+        effect_description = {'effect-description.solar-productivity', str(SP.BONUS[level] * 100)},
+      },
+    },
+    upgrade = true,
+    order = 'sp-' .. level,
+  }
+
+  for k, v in pairs(overrides) do
+    base[k] = v
+  end
+
+  return base
+end
+
 data:extend({
   -- SP-1
-  {
-    type = 'technology',
-    name = SP.TECHNOLOGY..'1',
-    icons = util.technology_icon_constant_productivity('__base__/graphics/technology/solar-energy.png'),
-    localised_description = {'technology-description.solar-productivity', str(SP.BONUS[1] * 100)},
-    effects =
+  create_sp_technology(
+    1,
     {
-      {
-        type = 'nothing',
-        effect_description = {'effect-description.solar-productivity', str(SP.BONUS[1] * 100)}
-      },
-    },
-    prerequisites = {'solar-energy', 'electric-energy-accumulators'},
-    unit =
-    {
-      count = 250,
-      ingredients =
-      {
-        {'automation-science-pack', 1},
-        {'logistic-science-pack', 1}
-      },
-      time = 60
-    },
-    upgrade = true,
-    order = 'sp-1'
-  },
+      prerequisites = {'solar-energy', 'electric-energy-accumulators'},
+      unit = {
+        count = 250,
+        ingredients = {SP.PACKS.automation, SP.PACKS.logistic},
+        time = 60,
+      }
+    }
+  ),
   -- SP-2
-  {
-    type = 'technology',
-    name = SP.TECHNOLOGY..'2',
-    icons = util.technology_icon_constant_productivity('__base__/graphics/technology/solar-energy.png'),
-    localised_description = {'technology-description.solar-productivity', str(SP.BONUS[2] * 100)},
-    effects =
+  create_sp_technology(
+    2,
     {
-      {
-        type = 'nothing',
-        effect_description = {'effect-description.solar-productivity', str(SP.BONUS[2] * 100)}
-      },
-    },
-    prerequisites = {SP.TECHNOLOGY..'1', 'chemical-science-pack'},
-    unit =
-    {
-      count = 500,
-      ingredients =
-      {
-        {'automation-science-pack', 1},
-        {'logistic-science-pack', 1},
-        {'chemical-science-pack', 1}
-      },
-      time = 60
-    },
-    upgrade = true,
-    order = 'sp-2'
-  },
+      prerequisites = {SP.TECHNOLOGY..'1', 'chemical-science-pack'},
+      unit = {
+        count = 500,
+        ingredients = {SP.PACKS.automation, SP.PACKS.logistic, SP.PACKS.chemical},
+        time = 60,
+      }
+    }
+  ),
   -- SP-3
-  {
-    type = 'technology',
-    name = SP.TECHNOLOGY..'3',
-    icons = util.technology_icon_constant_productivity('__base__/graphics/technology/solar-energy.png'),
-    localised_description = {'technology-description.solar-productivity', str(SP.BONUS[3] * 100)},
-    effects =
+  create_sp_technology(
+    3,
     {
-      {
-        type = 'nothing',
-        effect_description = {'effect-description.solar-productivity', str(SP.BONUS[3] * 100)}
-      },
-    },
-    prerequisites = {SP.TECHNOLOGY..'2', 'production-science-pack','utility-science-pack'},
-    unit =
-    {
-      count = 1000,
-      ingredients =
-      {
-        {'automation-science-pack', 1},
-        {'logistic-science-pack', 1},
-        {'chemical-science-pack', 1},
-        {'production-science-pack', 1},
-        {'utility-science-pack', 1}
-      },
-      time = 60
-    },
-    upgrade = true,
-    order = 'sp-3'
-  },
+      prerequisites = {SP.TECHNOLOGY..'2', 'production-science-pack','utility-science-pack'},
+      unit = {
+        count = 1000,
+        ingredients = {SP.PACKS.automation, SP.PACKS.logistic, SP.PACKS.chemical, SP.PACKS.production, SP.PACKS.utility},
+        time = 60,
+      }
+    }
+  ),
   -- SP-4
-  {
-    type = 'technology',
-    name = SP.TECHNOLOGY..'4',
-    icons = util.technology_icon_constant_productivity('__base__/graphics/technology/solar-energy.png'),
-    localised_description = {'technology-description.solar-productivity', str(SP.BONUS[4] * 100)},
-    effects =
+  create_sp_technology(
+    4,
     {
-      {
-        type = 'nothing',
-        effect_description = {'effect-description.solar-productivity', str(SP.BONUS[4] * 100)}
+      prerequisites = {SP.TECHNOLOGY..'3', 'space-science-pack'},
+      unit = {
+        count_formula = '2500*(L - 3)',
+        ingredients = {SP.PACKS.automation, SP.PACKS.logistic, SP.PACKS.chemical, SP.PACKS.production, SP.PACKS.utility, SP.PACKS.space},
+        time = 60,
       },
-    },
-    prerequisites = {SP.TECHNOLOGY..'3', 'space-science-pack'},
-    unit =
-    {
-      count_formula = '2500*(L - 3)',
-      ingredients = {
-        {'automation-science-pack', 1},
-        {'logistic-science-pack', 1},
-        {'chemical-science-pack', 1},
-        {'production-science-pack', 1},
-        {'utility-science-pack', 1},
-        {'space-science-pack', 1}
-      },
-      time = 60
-    },
-    max_level = SP.LEVELS,
-    upgrade = true,
-    order = 'sp-4',
-  }
+      max_level = SP.LEVELS,
+    }
+  )
 })

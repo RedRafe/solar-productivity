@@ -21,7 +21,7 @@
     "(?) FactorioExtended-Plus-Power",
     "(?) Krastorio2",
     "(?) Lindors-Advanced-Solar",
-    "(?) SaveMyPower",
+    "(?) SaveMyPower >= 0.2.0",
     "(?) skan-advanced-solar",
     "(?) space-exploration",
     "(?) Speckled-advanced-solar",
@@ -29,7 +29,7 @@
     "(?) Advanced-Electric-Revamped-GOR-v16",
     "(?) Lindors-GOR-Advanced-Solar",
     "(?) IndustrialRevolution3",
-    "(?) Cerys >= 0.9.5"
+    "(?) Cerys-Moon-of-Fulgora >= 0.9.5"
   ],
   "description": "Increase the efficiency of Solar panels and Accumulators by progressing through technology!",
   "factorio_version": "2.0"

@@ -17,6 +17,17 @@ SOL_PROD.ENTITY = 'sp-'
 
 SOL_PROD.TECHNOLOGY = 'solar-productivity-'
 
+SOL_PROD.TECHNOLOGY_ICON = '__base__/graphics/technology/solar-energy.png'
+
 SOL_PROD.COMPATIBILITY_LIST = require 'prototypes.compatibility'
+
+SOL_PROD.PACKS = {
+  automation = {'automation-science-pack', 1},
+  logistic   = {'logistic-science-pack',   1},
+  chemical   = {'chemical-science-pack',   1},
+  production = {'production-science-pack', 1},
+  utility    = {'utility-science-pack',    1},
+  space      = {'space-science-pack',      1},
+}
 
 return SOL_PROD

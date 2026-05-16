@@ -101,24 +101,19 @@ local function transfer_properties(old, new)
     end
 end
 
---- upgrade prototype to the higher level
 ---@param old LuaEntity
-local function update_prototype(old)
-    if not (old and old.valid) then
+---@param new_name string
+--- upgrade prototypes to required level
+---@param old LuaEntity
+---@param level number
+local function change_prototype_level(old, level)
+    if not level then
         return
     end
 
-    local force = old.force
-    local level = storage.levels[force.index]
-    if not level or level == 0 then
-        return
-    end
-    -- TODO: replace all solars to "vanilla" if prod-1 is unresearched
-
-    local old_name = old.name
-    local new_name = SP.ENTITY .. level .. '-' .. sutil.base(old_name)
-
-    if old_name == new_name then
+    local base = sutil.base(old.name)
+    local new_name = level == 0 and base or SP.ENTITY .. level .. '-' .. base
+    if old.name == new_name then
         return
     end
     if not prototypes.entity[new_name] then
@@ -142,6 +137,30 @@ local function update_prototype(old)
     transfer_properties(old, new)
     old.destroy()
 end
+
+--- upgrade prototype to the higher level
+---@param old LuaEntity
+local function upgrade_prototype(old)
+    if not (old and old.valid) then
+        return
+    end
+
+    local force = old.force
+    local level = storage.levels[force.index]
+
+    -- TODO: replace all solars to "vanilla" if prod-1 is unresearched
+    change_prototype_level(old, level)
+end
+
+--- downgrade prototype to the base prototype
+---@param old LuaEntity
+local function downgrade_prototype(old)
+    if not (old and old.valid) then
+        return
+    end
+    change_prototype_level(old, 0)
+end
+
 
 -- ============================================================================
 
@@ -202,43 +221,6 @@ end
 
 -- ============================================================================
 
---- downgrade prototype to the base prototype
----@param old LuaEntity
-local function downgrade_prototype(old)
-    if not (old and old.valid) then
-        return
-    end
-
-    local old_name = old.name
-    local new_name = sutil.base(old_name)
-
-    if old_name == new_name then
-        return
-    end
-    if not prototypes.entity[new_name] then
-        return
-    end
-
-    local new = old.surface.create_entity({
-        name = new_name,
-        position = old.position,
-        force = old.force,
-        player = old.last_user,
-        quality = old.quality,
-        create_build_effect_smoke = false,
-        raise_built = true,
-    })
-
-    if not (new and new.valid) then
-        return
-    end
-
-    transfer_properties(old, new)
-    old.destroy()
-end
-
--- ============================================================================
-
 --- replaces higher tiers with the base one
 local function replace_all_upgrades()
     local to_downgrade = storage.to_downgrade
@@ -273,7 +255,7 @@ local function on_tick()
     local d_size = ceil(size(to_downgrade) / storage.interval)
 
     while u_size > 0 do
-        update_prototype(pop(to_update))
+        upgrade_prototype(pop(to_update))
         u_size = u_size - 1
     end
 
@@ -332,13 +314,15 @@ end
 Upgrader.add_commands = function()
     -- Usage: type "/sp-update" in game console
     -- Forces the game to upgrade all entities, if possible
-    commands.add_command('sp-update', { 'command-help.sp-update' }, function()
+    commands.add_command('sp-update', { 'command-help.sp-update' }, function(event)
+        if not game.players[event.player_index].admin then return end
         update_forces_levels()
         update_entities()
     end)
     -- Usage: type "/sp-transition" in game console
     -- Removes all upgraded and places back the  base prototype
-    commands.add_command('sp-transition', { 'command-help.sp-transition' }, function()
+    commands.add_command('sp-transition', { 'command-help.sp-transition' }, function(event)
+        if not game.players[event.player_index].admin then return end
         storage.transitioning = true
         storage.to_update = Queue.new() -- Clear pending upgrades
         replace_all_upgrades()

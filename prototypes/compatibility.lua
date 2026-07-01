@@ -21,7 +21,7 @@ return {
   },
   {
     mod = '248k',
-    solar_panels = {'el_solar_entity'},
+    solar_panels = {'el_solar', 'el_solar_entity'},
     accumulators = {}
   },
   {

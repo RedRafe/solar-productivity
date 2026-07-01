@@ -1,6 +1,6 @@
 {
   "name": "solar-productivity",
-  "version": "2.1.14",
+  "version": "3.0.0",
   "title": "Solar Productivity",
   "author": "RedRafe",
   "source": "https://github.com/RedRafe/solar-productivity",
@@ -32,5 +32,5 @@
     "(?) Cerys >= 0.9.5"
   ],
   "description": "Increase the efficiency of Solar panels and Accumulators by progressing through technology!",
-  "factorio_version": "2.0"
+  "factorio_version": "2.1"
 }

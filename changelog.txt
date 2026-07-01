@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.0
+Date: 2026-07-01
+  Changes:
+    - Bumped factorio_version to 2.1 (no code changes were required: the mod does not touch any of the 2.1 breaking prototype/runtime APIs)
+---------------------------------------------------------------------------------------------------
 Version: 2.1.14
 Date: 2026-05-14
   Changes:
